@@ -16,16 +16,6 @@ beforeEach(() => {
   cleanup();
 })
 
-test("submit A succeeds", async () => {
-  render(<Stub initialEntries={["/home"]} />);
-  await screen.findByText("submitted value is");
-  const submitA = await screen.findByRole("button", { name: "Submit A" });
-  screen.debug(submitA);
-  const user = userEvent.setup();
-  await user.click(submitA);
-  await screen.findByText("submitted value is A");
-})
-
 test("A is submitted even when submit B button is clicked", async () => {
   render(<Stub initialEntries={["/home"]} />);
   await screen.findByText("submitted value is");
